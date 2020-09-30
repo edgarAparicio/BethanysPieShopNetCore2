@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BethanysPieShopNetCore2.ViewModels;
 using EdgarAparicio.BethanysPieShop.Data;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,9 +21,18 @@ namespace BethanysPieShopNetCore2.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            ViewBag.Tittle = "Pie Vision General";
-            var pies = _pieRepository.ObtenerPies().OrderBy(p => p.Nombre);
-            return View();
+            //ViewBag.Title = "Pie Vision General";
+            //var pies = _pieRepository.ObtenerPies().OrderBy(p => p.Nombre);
+            //return View(pies);
+
+
+            var homeViewModels = new HomeViewModels()
+            {
+                Titulo = "Bienvenido a Bethanys Pie Shop",
+                ListaPies = _pieRepository.ObtenerPies().OrderBy(p => p.Nombre).ToList()
+            };
+            return View(homeViewModels);
+
         }
     }
 }
