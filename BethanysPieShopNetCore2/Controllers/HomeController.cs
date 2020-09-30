@@ -34,5 +34,16 @@ namespace BethanysPieShopNetCore2.Controllers
             return View(homeViewModels);
 
         }
+
+        public ActionResult Detalle(int id)
+        {
+            var pie = _pieRepository.ObtenerPiePorId(id);
+            if(pie == null)
+            {
+                return NotFound();
+            }
+
+            return View(pie);
+        }
     }
 }

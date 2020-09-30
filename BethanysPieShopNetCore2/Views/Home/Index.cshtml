@@ -1,6 +1,7 @@
 ﻿@*@model IEnumerable<EdgarAparicio.BethanysPieShop.Business.Entity.Pie>*@
 
-@model BethanysPieShopNetCore2.ViewModels.HomeViewModels
+@*@model BethanysPieShopNetCore2.ViewModels.HomeViewModels             //Se comenta porque en la vista _ViewImports ya le agregamos el espacio de nombres *@
+@model HomeViewModels
 
 @{
     Layout = "_Layout";
@@ -31,7 +32,8 @@
             <div class="caption">
                 <h3 class="pull-right">@pie.Precio.ToString("c")</h3>
                 <h3>
-                    @pie.Nombre
+                    <a asp-controller="Home" asp-action="Detalle"
+                       asp-route-id="@pie.Id" >@pie.Nombre</a>
                 </h3>
                 <p>@pie.DescripcionCorta</p>
             </div>

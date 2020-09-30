@@ -1,0 +1,16 @@
+﻿@*@model EdgarAparicio.BethanysPieShop.Business.Entity.Pie        //Se quita porque en la vista _ViewImports ya se agrego el esapcio de nombres*@
+@model Pie
+
+<h2>@Model.Nombre</h2>
+
+<div class="thumbnail">
+    <img alt="@Model.Nombre" src="@Model.ImagenUrl"/>
+    <div class="caption-full">
+        <h3 class="caption-right"@Model.Precio></h3>
+        <h3>
+            <a href="#">@Model.Nombre</a>
+        </h3>
+        <h4>@Model.DescripcionCorta</h4>
+        <p>@Model.DescripcionLarga</p>
+    </div>
+</div>
