@@ -4,14 +4,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using EdgarAparicio.BethanysPieShop.Business.Entity;
 using EdgarAparicio.BethanysPieShop.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace BethanysPieShopNetCore2.Controllers
 {
+    [Authorize]
     public class FeedbackController : Controller
     {
+        
         private readonly IDataFeedback db;
 
         public FeedbackController(IDataFeedback db)
