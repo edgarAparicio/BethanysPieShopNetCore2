@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EdgarAparicio.BethanysPieShop.Data.Migrations
 {
     [DbContext(typeof(DbContextBethanysPieShop))]
-    [Migration("20200930013351_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20201001005742_MigracionInicial")]
+    partial class MigracionInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,6 +19,25 @@ namespace EdgarAparicio.BethanysPieShop.Data.Migrations
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("EdgarAparicio.BethanysPieShop.Business.Entity.Feedback", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Contacto");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Mensaje");
+
+                    b.Property<string>("Nombre");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Feedbacks");
+                });
 
             modelBuilder.Entity("EdgarAparicio.BethanysPieShop.Business.Entity.Pie", b =>
                 {

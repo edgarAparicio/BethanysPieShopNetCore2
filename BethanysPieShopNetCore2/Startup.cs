@@ -29,6 +29,7 @@ namespace BethanysPieShopNetCore2
 
             services.AddDbContext<DbContextBethanysPieShop>(opciones => opciones.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IDataBetahysPieShop, DataBethanysPieShop>();
+            services.AddTransient<IDataFeedback, DataFeedback>();
             //services.AddTransient<IDataBetahysPieShop, SimuladorRepositorioBethanysPieShop>();
             services.AddMvc();
         }
@@ -40,7 +41,7 @@ namespace BethanysPieShopNetCore2
             app.UseStatusCodePages();
             app.UseStaticFiles();
             //app.UseMvcWithDefaultRoute();
-
+            app.UseAuthentication();  //Middleware de ASP.NET Core para la autenticacion
             app.UseMvc(routes =>
             {
                 routes.MapRoute
